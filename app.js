@@ -56,12 +56,12 @@ function nextButtonDisable() {
     if ($('.current').hasClass("last")) {
         $('.next-button').prop('disabled', $('.current').hasClass('last'));
     }
-    $('.prev-button').prop('disabled', false);
+    $('.prev-button').prop('disabled', $('.current').hasClass('first'));
 }
 
 function prevButtonDisable() {
     if ($('.current').hasClass("first")) {
         $('.prev-button').prop('disabled', $('.current').hasClass('first'));
     }
-    $('.next-button').prop('disabled', false);
+    $('.next-button').prop('disabled', $('.current').hasClass('last'));
 }
