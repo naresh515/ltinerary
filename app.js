@@ -1,4 +1,24 @@
 $(document).ready(function () {
+    const $tabContents = $('.tab-content');
+    const $tab = $('ul.tabs li');
+    const $icon = $('.icon_tab');
+
+    $tab.click(function () {
+        const tab_id = $(this).attr('data-tab');
+
+        $tab.removeClass('current');
+        $tabContents.removeClass('current');
+        $(this).addClass('current');
+        $("#" + tab_id).addClass('current');
+        nextButtonDisable();
+        prevButtonDisable();
+    });
+
+    $icon.click(function () {
+        $icon.removeClass('active');
+        $(this).addClass('active');
+    });
+
     if ($('.current').hasClass('first')) {
         $('.prev-button').prop('disabled', true);
     }
@@ -14,10 +34,7 @@ $(document).ready(function () {
             $('.icon_tab').removeClass('active');
             nextIcon.addClass('active');
         }
-
-        $(this).prop('disabled', $('.current').hasClass('last'));
-
-        $('.prev-button').prop('disabled', false);
+        nextButtonDisable();
     });
 
     $('.prev-button').click(function () {
@@ -31,9 +48,20 @@ $(document).ready(function () {
             $('.icon_tab').removeClass('active');
             prevIcon.addClass('active');
         }
-
-        $(this).prop('disabled', $('.current').hasClass('first'));
-
-        $('.next-button').prop('disabled', false);
+        prevButtonDisable();
     });
 });
+
+function nextButtonDisable() {
+    if ($('.current').hasClass("last")) {
+        $('.next-button').prop('disabled', $('.current').hasClass('last'));
+    }
+    $('.prev-button').prop('disabled', false);
+}
+
+function prevButtonDisable() {
+    if ($('.current').hasClass("first")) {
+        $('.prev-button').prop('disabled', $('.current').hasClass('first'));
+    }
+    $('.next-button').prop('disabled', false);
+}
