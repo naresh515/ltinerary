@@ -1,7 +1,6 @@
 $(document).ready(function () {
     const $tabContents = $('.tab-content');
     const $tab = $('ul.tabs li');
-    const $icon = $('.icon_tab');
 
     $tab.click(function () {
         const tab_id = $(this).attr('data-tab');
@@ -10,28 +9,24 @@ $(document).ready(function () {
         $tabContents.removeClass('current');
         $(this).addClass('current');
         $("#" + tab_id).addClass('current');
-        nextButtonDisable();
-        prevButtonDisable();
-    });
-
-    $icon.click(function () {
-        $icon.removeClass('active');
+        $tab.removeClass('active');
         $(this).addClass('active');
+        nextButtonDisable();
     });
 
-    if ($('.current').hasClass('first')) {
-        $('.prev-button').prop('disabled', true);
-    }
+    $('.prev-button').prop('disabled', $('.current').hasClass('first'));
 
     $('.next-button').click(function () {
         const nextTab = $('.tab-content.current').next('.tab-content');
-        const nextIcon = $('.icon_tab.active').next('.icon_tab');
+        const nextIcon = $('.tab-link.active').next('.tab-link');
+
+        document.getElementById("wrapper").scrollLeft += 260;
 
         if (nextTab.length == 1) {
             $('.tab-content').removeClass('current');
             nextTab.addClass('current');
 
-            $('.icon_tab').removeClass('active');
+            $('.tab-link').removeClass('active');
             nextIcon.addClass('active');
         }
         nextButtonDisable();
@@ -39,29 +34,22 @@ $(document).ready(function () {
 
     $('.prev-button').click(function () {
         const prevTab = $('.tab-content.current').prev('.tab-content');
-        const prevIcon = $('.icon_tab.active').prev('.icon_tab');
+        const prevIcon = $('.tab-link.active').prev('.tab-link');
+        document.getElementById("wrapper").scrollLeft -= 260;
 
         if (prevTab.length == 1) {
             $('.tab-content').removeClass('current');
             prevTab.addClass('current');
 
-            $('.icon_tab').removeClass('active');
+            $('.tab-link').removeClass('active');
             prevIcon.addClass('active');
         }
-        prevButtonDisable();
+        nextButtonDisable();
     });
 });
 
 function nextButtonDisable() {
-    if ($('.current').hasClass("last")) {
-        $('.next-button').prop('disabled', $('.current').hasClass('last'));
-    }
-    $('.prev-button').prop('disabled', $('.current').hasClass('first'));
-}
-
-function prevButtonDisable() {
-    if ($('.current').hasClass("first")) {
-        $('.prev-button').prop('disabled', $('.current').hasClass('first'));
-    }
     $('.next-button').prop('disabled', $('.current').hasClass('last'));
+
+    $('.prev-button').prop('disabled', $('.current').hasClass('first'));
 }

@@ -99,14 +99,9 @@ body {
     font-weight: 900;
 }
 
-.icon_tab {
-    background: transparent;
-    border-radius: 12px;
-    text-align: left;
-    cursor: pointer;
-    border: 1px solid #d4e0e7;
+.tab-link {
     position: relative;
-    width: 240px;
+    border-radius: 12px;
 }
 
 .tabs {
@@ -125,11 +120,19 @@ body {
     content: '';
 }
 
-.tab-link {
+.icon_tab {
     text-transform: capitalize;
     font-weight: 800;
     font-size: 20px;
-    margin: 10px;
+    padding: 10px;
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+    border: 1px solid #d4e0e7;
+    width: 240px;
+    position: relative;
+    z-index: -1;
+    border-radius: 12px;
 }
 
 .hyperline {
@@ -163,7 +166,8 @@ body {
     text-align: center;
     left: 0;
     right: 0;
-    margin-top: -5px;
+    bottom: 0;
+    margin-bottom: -19px;
 }
 
 .tab-content {
@@ -186,22 +190,22 @@ body {
     justify-content: flex-end;
 }
 
-.btn {
+.arrows {
     border-radius: 50%;
     border: none;
     padding: 8px;
     cursor: pointer;
+    height: 30px;
     background-color: #dbe7ee;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @media screen and (min-width: 320px) and (max-width: 800px) {
     .top-panel {
         flex-direction: column;
-    }
-
-    .icon_tab {
-        width: auto;
-        margin: 0px 10px 30px;
     }
 
     .tabs {
@@ -221,6 +225,7 @@ body {
 
     .tab-link {
         font-size: 15px;
+        margin: 0px 10px 30px;
     }
 
     .tab-link p {
