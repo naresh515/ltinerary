@@ -6,7 +6,6 @@ $(document).ready(function () {
     $('.next-button').click(function () {
         const nextTab = $('.tab-content.current').next('.tab-content');
         const nextIcon = $('.icon_tab.active').next('.icon_tab');
-        const nextIconActive = $('.icon.icon-active').next('.icon');
 
         if (nextTab.length == 1) {
             $('.tab-content').removeClass('current');
@@ -14,9 +13,6 @@ $(document).ready(function () {
 
             $('.icon_tab').removeClass('active');
             nextIcon.addClass('active');
-
-            $('.icon').removeClass('icon-active');
-            nextIconActive.addClass('icon-active');
         }
 
         $(this).prop('disabled', $('.current').hasClass('last'));
@@ -27,7 +23,6 @@ $(document).ready(function () {
     $('.prev-button').click(function () {
         const prevTab = $('.tab-content.current').prev('.tab-content');
         const prevIcon = $('.icon_tab.active').prev('.icon_tab');
-        const prevIconActive = $('.icon.icon-active').prev('.icon');
 
         if (prevTab.length == 1) {
             $('.tab-content').removeClass('current');
@@ -35,9 +30,6 @@ $(document).ready(function () {
 
             $('.icon_tab').removeClass('active');
             prevIcon.addClass('active');
-
-            $('.icon').removeClass('icon-active');
-            prevIconActive.addClass('icon-active');
         }
 
         $(this).prop('disabled', $('.current').hasClass('first'));
