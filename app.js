@@ -20,7 +20,9 @@ $(document).ready(function () {
         const nextTab = $('.tab-content.current').next('.tab-content');
         const nextIcon = $('.tab-link.active').next('.tab-link');
 
-        document.getElementById("wrapper").scrollLeft += 260;
+        if ($('.tab-link').hasClass('active')) {
+            document.getElementById("wrapper").scrollLeft += 25 + $(".tab-link").width()
+        }
 
         if (nextTab.length == 1) {
             $('.tab-content').removeClass('current');
@@ -35,7 +37,10 @@ $(document).ready(function () {
     $('.prev-button').click(function () {
         const prevTab = $('.tab-content.current').prev('.tab-content');
         const prevIcon = $('.tab-link.active').prev('.tab-link');
-        document.getElementById("wrapper").scrollLeft -= 260;
+
+        if ($('.tab-link').hasClass('active')) {
+            document.getElementById("wrapper").scrollLeft -= 25 + $(".tab-link").width()
+        }
 
         if (prevTab.length == 1) {
             $('.tab-content').removeClass('current');
