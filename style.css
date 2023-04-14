@@ -101,7 +101,7 @@ body {
 
 .tab-link {
     position: relative;
-    border-radius: 12px;    
+    border-radius: 12px;
     border: 2px solid #d4e0e7;
 }
 
@@ -168,7 +168,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    margin-bottom: -19px;
+    margin-bottom: -17px;
 }
 
 .tab-content {
@@ -237,5 +237,9 @@ body {
     .line:before {
         top: 60px;
         height: 100%;
+    }
+
+    .active::after {
+        margin-bottom: -15px;
     }
 }
