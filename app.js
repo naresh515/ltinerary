@@ -51,7 +51,7 @@ $(document).ready(function () {
             prevIcon.addClass('active');
         }
         nextButtonDisable();
-        const scrollLeft = tabsContainer.scrollLeft() + prevTab1.position().left - 200;
+        const scrollLeft = tabsContainer.scrollLeft() + prevTab1.position().left - 25;
         tabsContainer.animate({ scrollLeft: scrollLeft }, 100);
     });
 });
