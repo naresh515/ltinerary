@@ -103,6 +103,8 @@ body {
     position: relative;
     border-radius: 12px;
     border: 2px solid #d4e0e7;
+    width: 240px;
+    margin: 0px 5px;
 }
 
 .tabs {
@@ -129,7 +131,6 @@ body {
     background: transparent;
     text-align: left;
     cursor: pointer;
-    width: 240px;
     position: relative;
     z-index: -1;
     border: none;
@@ -137,9 +138,8 @@ body {
 
 .hyperline {
     width: 50%;
-    position: relative;
-    left: -50px;
     border: 1px solid #d4e0e7;
+    margin: 10px 0px;
 }
 
 .tab-link p {
@@ -241,5 +241,9 @@ body {
 
     .active::after {
         margin-bottom: -15px;
+    }
+
+    .icon_tab {
+        width: 240px;
     }
 }
